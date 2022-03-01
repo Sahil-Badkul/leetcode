@@ -10,22 +10,12 @@
  */
 class Solution {
 public:
-    int getLen(ListNode* head){
-        ListNode* curr = head;
-        int cnt = 0;
-        while(curr){
-            cnt++;
-            curr = curr->next;
-        }
-        return cnt;
-    }
     ListNode* middleNode(ListNode* head) {
-        ListNode* temp = head;
-        int mid = ceil(getLen(temp)/2);
-        cout<<mid<<endl;
-        while(mid--){
-            head = head->next;
+        ListNode* slow = head, *fast = head;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        return head;
+        return slow;
     }
 };
