@@ -34,13 +34,13 @@ public:
             return list2;
         }
     }
-    ListNode* getMid(ListNode* head) {
-        ListNode* midPrev = nullptr;
-        while (head && head->next) {
+    ListNode *getMid(ListNode *head){
+        ListNode *midPrev = nullptr;
+        while(head and head->next){
             midPrev = (midPrev == nullptr) ? head : midPrev->next;
             head = head->next->next;
         }
-        ListNode* mid = midPrev->next;
+        ListNode *mid = midPrev->next;
         midPrev->next = nullptr;
         return mid;
     }
