@@ -10,25 +10,36 @@
  */
 class Solution {
 public:
-    void reorderList(ListNode* head) {
-        stack<ListNode*> st;
-        ListNode *curr = head;
+    ListNode* reverse(ListNode *list){
+        ListNode *prev = nullptr, *next = nullptr, *curr = list;
         while(curr){
-            st.push(curr);
-            curr = curr->next;
-        }
-        int n = st.size();
-        if(n <= 2) return;
-        curr = head;
-        ListNode *next = nullptr;
-        for(int i = 0; i < n/2; i++){
             next = curr->next;
-            curr->next = st.top();
-            st.pop();
-            curr = curr->next;
-            curr->next = next;
-            curr = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        curr->next = nullptr;
+        return prev;
+    }
+    void reorderList(ListNode* head) {
+        //base case;
+        if(!head or !head->next) return;
+        // slow and fast for finding mid
+        ListNode *slow = head, *fast = head;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        // reverse list after mid;
+        ListNode *n2 = reverse(slow);
+        ListNode *n1 = head, *temp = nullptr;
+        while(n2 -> next){
+            temp = n1->next;
+            n1->next = n2;
+            n1 = temp;
+            
+            temp = n2->next;
+            n2->next = n1;
+            n2 = temp;
+        }
     }
 };
