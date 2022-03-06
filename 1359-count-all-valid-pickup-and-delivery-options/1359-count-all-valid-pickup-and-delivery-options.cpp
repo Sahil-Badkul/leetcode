@@ -7,7 +7,7 @@ public:
         for(int i = 2; i <= n; i++){
             res = (res*i) % M;
         }
-        for(int i = 1; i < 2*n; i+=2){
+        for(int i = 1; i <= 2*n; i+=2){
             res = (res*i) % M;
         }
         return (int) res%M;
