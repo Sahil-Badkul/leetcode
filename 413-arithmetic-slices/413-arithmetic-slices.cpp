@@ -1,26 +1,19 @@
 class Solution {
 public:
-    bool isValid(vector<int> &arr){
-        int n = arr.size();
-        for(int i = 1; i < n-1; i++){
-            int fs = arr[i]  - arr[i-1];
-            int sn = arr[i+1] - arr[i];
-            if(fs != sn) return false;
-        }
-        return true;
-    }
     int numberOfArithmeticSlices(vector<int>& nums) {
-        int n = nums.size();
-        int result = 0;
-        for(int i = 0; i < n; i++){
-            vector<int> temp;
-            for(int j = i; j < n; j++){
-                temp.push_back(nums[j]);
-                if(temp.size() > 2){
-                    if(isValid(temp)) result++;
-                }
+        if(nums.size() < 3) return 0;
+        int diff = 0, prevDiff = nums[1] - nums[0];
+        int cnt = 0, ind = 0;
+        for(int i = 1; i < nums.size()-1; i++){
+            diff = nums[i+1] - nums[i];
+            if(diff == prevDiff){
+                ++ind;
+            }else{
+                prevDiff = diff;
+                ind = 0;
             }
+            cnt += ind;
         }
-        return result;
+        return cnt;
     }
 };
