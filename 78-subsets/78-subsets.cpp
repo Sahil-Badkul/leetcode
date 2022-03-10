@@ -6,8 +6,9 @@ public:
             ans.push_back(temp);
             return;
         }
-        power(nums, l+1, temp); 
         temp.push_back(nums[l]);
+        power(nums, l+1, temp); 
+        temp.pop_back();
         power(nums,l+1, temp);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
