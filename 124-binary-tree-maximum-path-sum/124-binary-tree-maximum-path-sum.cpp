@@ -11,10 +11,13 @@
  */
 class Solution {
 public:
+    // don't forgot we push maxi by reference.
     int maxPathDown(TreeNode* node, int &maxi){
         if(node == NULL) return 0;
+        // we are taking max(0, node->left) bcaz we not to consider -ve path
         int left = max(0, maxPathDown(node->left, maxi));
         int right = max(0, maxPathDown(node->right, maxi));
+        // updating maxi everytime.
         maxi = max(maxi, left+right+node->val);
         return max(left, right) + node->val;
     }
