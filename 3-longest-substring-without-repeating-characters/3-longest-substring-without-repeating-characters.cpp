@@ -1,5 +1,18 @@
 class Solution {
 public:
+    int lengthOfLongestSubstring(string s){
+        vector<int> freq(256, -1);
+        int maxLen = 0, start = -1;
+        for(int i = 0; i < s.size(); i++){
+            if(freq[s[i]] > start){
+                start = freq[s[i]];
+            }
+            freq[s[i]] = i;
+            maxLen = max(maxLen, i - start);
+        }
+        return maxLen;
+    }
+    /*
     int lengthOfLongestSubstring(string s) {
         // freq vector for storing value of char or it's like a mark
         vector<int> umap(256,-1);
@@ -17,4 +30,5 @@ public:
         }
         return len;
     }
+    */
 };
