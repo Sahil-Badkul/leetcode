@@ -114,7 +114,7 @@ class Solution
         while(!q.empty()){
             auto it = q.front();
             q.pop();
-            Node *node = it.first;
+            auto *node = it.first;
             int line = it.second;
             if(mp.find(line) == mp.end()) mp[line] = node->data;
             if(node->left != NULL) q.push({node->left, line-1});
