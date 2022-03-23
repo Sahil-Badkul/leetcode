@@ -16,7 +16,29 @@ public:
         if(l == NULL or r == NULL or l->val != r ->val) return false;
         return symmetric(l->left, r->right) && symmetric(l->right, r->left);
     }
+    bool iterative(TreeNode* root){
+        if(!root) return true;
+        queue<TreeNode*> q;
+        q.push(root->left);
+        q.push(root->right);
+        while(!q.empty()){
+            auto *l = q.front();
+            q.pop();
+            auto *r = q.front();
+            q.pop();
+            if(!l and r || l and !r) return false;
+            if(l){
+                if(l->val != r->val) return false;
+                q.push(l->left);
+                q.push(r->right);
+                q.push(l->right);
+                q.push(r->left);
+            }
+        }
+        return true;
+    }
     bool isSymmetric(TreeNode* root) {
-        return symmetric(root->left, root->right);
+        // return symmetric(root->left, root->right);
+        return iterative(root);
     }
 };
