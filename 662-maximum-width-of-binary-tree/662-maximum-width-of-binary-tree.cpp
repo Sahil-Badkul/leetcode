@@ -26,7 +26,7 @@ public:
                 q.pop();
                 if(i == 0) left = j;
                 if(i == n-1) right = j;
-                if(root->left != NULL) q.push({root->left,(long long) j*2+1});
+                if(root->left != NULL) q.push({root->left,1LL*j*2+1});
                 if(root->right != NULL) q.push({root->right,(long long) j*2+2});
             }
             maxWidth = max(maxWidth, right-left+1);
