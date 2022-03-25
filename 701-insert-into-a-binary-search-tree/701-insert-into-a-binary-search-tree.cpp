@@ -11,8 +11,15 @@
  */
 class Solution {
 public:
+    TreeNode* recursive(TreeNode*root, int val){
+        if(root == NULL) return new TreeNode(val);
+        if(val < root->val) root->left = recursive(root->left, val);
+        else root->right = recursive(root->right, val);
+        return root;
+    }
     TreeNode* insertIntoBST(TreeNode* root, int val) {
         if(root == NULL)  return new TreeNode(val);
+        return recursive(root, val);
         TreeNode *curr = root;
         while(curr){
             if(val < curr->val){
