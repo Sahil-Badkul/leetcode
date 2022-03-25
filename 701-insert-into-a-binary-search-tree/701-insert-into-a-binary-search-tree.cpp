@@ -19,7 +19,7 @@ public:
     }
     TreeNode* insertIntoBST(TreeNode* root, int val) {
         if(root == NULL)  return new TreeNode(val);
-        return recursive(root, val);
+        // return recursive(root, val);
         TreeNode *curr = root;
         while(curr){
             if(val < curr->val){
