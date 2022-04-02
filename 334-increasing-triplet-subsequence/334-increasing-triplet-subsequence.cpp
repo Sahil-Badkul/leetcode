@@ -1,5 +1,7 @@
 class Solution {
 public:
+    /*
+    // better approach
     bool increasingTriplet(vector<int>& nums) {
         int n = nums.size();
         vector<int> maxRight(n);
@@ -15,6 +17,21 @@ public:
             if(it == st.begin()) continue;
             it--;
             if(maxRight[i] > nums[i]) return true;
+        }
+        return false;
+    }
+    */
+    //Best approach
+    bool increasingTriplet(vector<int>& nums){
+        int one = INT_MAX, two = INT_MAX;
+        for(auto& num : nums){
+            if(num < one){
+                one = num;
+            }else if(one < num && num < two){
+                two = num;
+            }else if(one < num && two < num){
+                return true;
+            }
         }
         return false;
     }
