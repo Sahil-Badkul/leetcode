@@ -21,7 +21,7 @@ public:
                 int i = q.front().first, j = q.front().second;
                 q.pop();
                 if(i >= 0 && j >= 0 && i < row && j < col && grid[i][j] == 0){
-                    grid[i][j] = step;
+                    grid[i][j] = -1;    // -1 means visited
                     q.push({i-1,j});
                     q.push({i+1,j});
                     q.push({i,j-1});
