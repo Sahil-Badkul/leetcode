@@ -13,6 +13,7 @@ public:
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 if(mat[i][j] == 0){
+                    // We are push pair of indexes.
                     q.push({i,j});
                     ans[i][j] = 0;
                 }
@@ -22,6 +23,7 @@ public:
             while(!q.empty()){
                 int i = q.front().first;
                 int j = q.front().second;
+                q.pop();
                 if(isvalid(i+1,j,m,n) && ans[i+1][j] == -1){
                     q.push({i+1,j});
                     ans[i+1][j] = ans[i][j] + 1;
@@ -38,7 +40,6 @@ public:
                     q.push({i,j-1});
                     ans[i][j-1] = ans[i][j] + 1;
                 }
-                q.pop();
             }
         return ans;
     }
