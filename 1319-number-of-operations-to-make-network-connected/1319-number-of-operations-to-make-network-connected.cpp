@@ -1,10 +1,3 @@
-static int speedUp=[](){
-    std::ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
-
 class Solution {
     void DFS(unordered_map<int,vector<int>>& adj,int curr,vector<bool>& visited)
     {
