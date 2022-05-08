@@ -4,6 +4,6 @@
 # and weather.Temperature  > w.Temperature;
 
 SELECT a.Id
-FROM Weather a join Weather b
+FROM Weather a, Weather b
 WHERE a.Temperature > b.Temperature
 AND DATEDIFF(a.Recorddate,b.Recorddate) = 1
