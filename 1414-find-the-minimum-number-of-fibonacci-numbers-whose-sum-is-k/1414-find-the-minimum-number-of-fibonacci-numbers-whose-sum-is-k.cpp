@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findMinFibonacciNumbers(int k) {
-        vector<int> fib = {1,1};
+        vector<int> fib = {0,1};
         for(int i = 2; fib[i-1] + fib[i-2] <= k; i++){
             fib.push_back(fib[i-1] + fib[i-2]);
         }
