@@ -1,12 +1,20 @@
 class Solution {
 public:
-        int findMinFibonacciNumbers(int k) {
-        if (k < 2) return k;
-        int a = 1, b = 1;
-        while (b <= k) {
-            swap(a, b);
-            b += a;
+    int findMinFibonacciNumbers(int k) {
+        vector<int> fib = {1,1};
+        for(int i = 2; fib[i-1] + fib[i-2] <= k; i++){
+            fib.push_back(fib[i-1] + fib[i-2]);
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while(k > 0){
+            if(fib.back() > k){
+                fib.pop_back();
+                continue;
+            }
+            ans++;
+            k -= fib.back();
+            fib.pop_back();
+        }
+        return ans;
     }
 };
