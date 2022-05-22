@@ -1,5 +1,13 @@
 class Solution {
 public:
+int helper(int idx, vector<int>&nums, vector<int>&sum, vector<int> &dp){
+    if(idx == 0) return 0;
+    if(idx == 1) return sum[1];
+    if(dp[idx] != -1) return dp[idx];
+    int left = sum[idx] + helper(idx-2, nums, sum, dp);
+    int right = helper(idx-1, nums, sum, dp);
+    return dp[idx] = max(left, right);
+}
 int deleteAndEarn(vector<int>& nums) {
     int n = 10001;
     
@@ -10,6 +18,8 @@ int deleteAndEarn(vector<int>& nums) {
     for(auto num: nums){
         sum[num] += num;
     }
+    vector<int> dp(n, -1);
+    return helper(n-1, nums, sum, dp);
     /*
     // Tabulation
     dp[0] = 0;
@@ -21,6 +31,7 @@ int deleteAndEarn(vector<int>& nums) {
     
     return dp[n-1];
     */
+    /*
     // space optimization
     int prev2 = 0;
     int prev = sum[1];
@@ -30,5 +41,6 @@ int deleteAndEarn(vector<int>& nums) {
         prev = curr;
     }
     return max(prev2, prev);
+    */
 }
 };
