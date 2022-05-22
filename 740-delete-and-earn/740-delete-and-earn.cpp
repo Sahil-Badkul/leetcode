@@ -5,12 +5,13 @@ int deleteAndEarn(vector<int>& nums) {
     
 	//take the total sum by each number
     vector<int> sum(n, 0);
-    vector<int> dp(n, 0);
+    // vector<int> dp(n, 0);
     
     for(auto num: nums){
         sum[num] += num;
     }
-    
+    /*
+    // Tabulation
     dp[0] = 0;
     dp[1] = sum[1];
     //now apply the house robbing concept
@@ -19,5 +20,15 @@ int deleteAndEarn(vector<int>& nums) {
     }
     
     return dp[n-1];
+    */
+    // space optimization
+    int prev2 = 0;
+    int prev = sum[1];
+    for(int i = 2; i < n; i++){
+        int curr = max(sum[i]+prev2, prev);
+        prev2 = prev;
+        prev = curr;
+    }
+    return max(prev2, prev);
 }
 };
