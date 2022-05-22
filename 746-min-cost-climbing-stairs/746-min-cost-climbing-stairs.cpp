@@ -18,6 +18,7 @@ public:
         return min(helper(n-1, cost, dp), helper(n-2, cost, dp));
         */
         // Tabulation
+        /*
         vector<int> dp(n, 0);
         dp[0] = cost[0];
         dp[1] = cost[1];
@@ -25,5 +26,15 @@ public:
             dp[i] = cost[i] + min(dp[i-1],dp[i-2]);
         }
         return min(dp[n-1],dp[n-2]);
+        */
+        // space optimization
+        int prev2 = cost[0];
+        int prev = cost[1];
+        for(int i = 2; i < n; i++){
+            int curr = cost[i] + min(prev, prev2);
+            prev2 = prev;
+            prev = curr;
+        }
+        return min(prev, prev2);
     }
 };
