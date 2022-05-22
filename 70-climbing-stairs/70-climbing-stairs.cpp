@@ -1,6 +1,7 @@
 class Solution {
 public:
     int climbStairs(int n) {
+        // space optimization
         if(n <= 0) return 0;
         if(n == 1) return 1;
         if(n == 2) return 2;
@@ -12,6 +13,6 @@ public:
             twoBack = oneBack;
             oneBack = allstep;
         }
-        return allstep;
+        return oneBack;
     }
 };
