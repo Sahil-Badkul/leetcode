@@ -52,7 +52,7 @@ int spaceOptimize(int n, int m, vector<vector<int>> &grid){
         int n = grid.size();
     int m = grid[0].size();
 //     return memoization(n,m,grid);
-//     return tabulation(n, m, grid);
-    return spaceOptimize(n,m,grid);
+    return tabulation(n, m, grid);
+    // return spaceOptimize(n,m,grid);
     }
 };
