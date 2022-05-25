@@ -51,7 +51,7 @@ int spaceOptimize(int n, int m, vector<vector<int>> &mat){
         int m = mat[0].size();
         //     vector<vector<int>> dp(n, vector<int> (m,-1));
 //     return memo(n-1, m-1, mat, dp) % mod;
-//     return tabulation(n, m, mat);
-    return spaceOptimize(n,m,mat);
+    return tabulation(n, m, mat);
+    // return spaceOptimize(n,m,mat);
     }
 };
