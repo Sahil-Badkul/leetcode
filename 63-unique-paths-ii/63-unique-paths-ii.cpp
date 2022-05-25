@@ -46,12 +46,15 @@ int spaceOptimize(int n, int m, vector<vector<int>> &mat){
     }
     return prev[m-1] % mod;
 }
+int memoization(int n, int m, vector<vector<int>> &mat){
+    vector<vector<int>> dp(n, vector<int> (m,-1));
+    return memo(n-1, m-1, mat, dp) % mod;
+}
     int uniquePathsWithObstacles(vector<vector<int>>& mat) {
         int n = mat.size();
         int m = mat[0].size();
-        //     vector<vector<int>> dp(n, vector<int> (m,-1));
-//     return memo(n-1, m-1, mat, dp) % mod;
-    return tabulation(n, m, mat);
+        return memoization(n, m, mat);
+    // return tabulation(n, m, mat);
     // return spaceOptimize(n,m,mat);
     }
 };
