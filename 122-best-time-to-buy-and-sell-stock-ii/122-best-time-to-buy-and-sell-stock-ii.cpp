@@ -39,8 +39,29 @@ public:
         }
         return dp[0][1];
     }
+    int spaceOptimize(vector<int> &price){
+        int n = price.size();
+        vector<int> ahead(2, 0), curr(2, 0);
+        
+        for(int idx = n-1; idx >= 0; idx--){
+            for(int buy = 0; buy < 2; buy++){
+                int profit = 0;
+                if(buy){
+                    profit = max(-price[idx] + ahead[0],
+                        0 + ahead[1]);
+                }else{
+                    profit = max(price[idx] + ahead[1],
+                           0 + ahead[0]);
+                }
+                curr[buy] = profit;
+            }
+            ahead = curr;
+        }
+        return ahead[1];
+    }
     int maxProfit(vector<int>& prices) {
         // return memoization(prices);
-        return tabulation(prices);
+        // return tabulation(prices);
+        return spaceOptimize(prices);
     }
 };
