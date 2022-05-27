@@ -59,9 +59,25 @@ public:
         }
         return ahead[1];
     }
+    int usingVariable(vector<int> &price){
+        int n = price.size();
+        int aheadNotBuy = 0, aheadBuy = 0;
+        int currNotBuy = 0, currBuy = 0;
+        for(int i = n-1; i >= 0; i--){
+            currNotBuy = max(price[i] + aheadBuy, 
+                            0 + aheadNotBuy);
+            currBuy = max(-price[i] + aheadNotBuy, 
+                         0 + aheadBuy);
+            aheadBuy = currBuy;
+            aheadNotBuy = currNotBuy;
+        }
+        return aheadBuy;
+        
+    }
     int maxProfit(vector<int>& prices) {
         // return memoization(prices);
         // return tabulation(prices);
-        return spaceOptimize(prices);
+        // return spaceOptimize(prices);
+        return usingVariable(prices);
     }
 };
