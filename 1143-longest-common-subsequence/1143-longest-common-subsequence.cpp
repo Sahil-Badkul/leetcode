@@ -28,8 +28,26 @@ public:
         }
         return dp[n][m];
     }
+    int spaceOptimize(string &s1, string &s2){
+        int n = s1.size(), m = s2.size();
+        vector<int> prev(m+1, 0), curr(m+1, 0);
+        for(int j = 0; j <= m; j++) prev[0] = 0;
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                // matches
+                if(s1[i-1] == s2[j-1]){
+                    curr[j] = 1 + prev[j-1];
+                }else{
+                    curr[j] = max(prev[j], curr[j-1]);
+                }
+            }
+            prev = curr;
+        }
+        return prev[m];
+    }
     int longestCommonSubsequence(string text1, string text2) {
         // return memoization(text1, text2);
-        return tabulation(text1, text2);
+        // return tabulation(text1, text2);
+        return spaceOptimize(text1, text2);
     }
 };
