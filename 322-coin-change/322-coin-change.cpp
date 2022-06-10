@@ -68,7 +68,7 @@ public:
     }
     int coinChange(vector<int>& coins, int amount) {
         // return memoization(coins, amount);
-        // return tabulation(coins, amount);
-        return spaceOptimize(coins, amount);
+        return tabulation(coins, amount);
+        // return spaceOptimize(coins, amount);
     }
 };
