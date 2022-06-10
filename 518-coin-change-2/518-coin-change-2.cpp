@@ -39,8 +39,30 @@ public:
         }
         return dp[n-1][x];
     }
+    int spaceOptimize(vector<int> &num, int x)
+    {
+        int n = num.size();
+        vector<int> prev(x+1, 0), curr(x+1, 0);
+        for(int T = 0; T <= x; T++){
+            if(T % num[0] == 0) prev[T] = 1;
+            else prev[T] = 0;
+        }
+        for(int ind = 1; ind < n; ind++){
+            for(int T = 0; T <= x; T++){
+                int notTake = prev[T];
+                int take = 0;
+                if(num[ind] <= T){
+                    take = curr[T-num[ind]];
+                }
+                curr[T] = (take + notTake);
+            }
+            prev = curr;
+        }
+        return prev[x];
+    }
     int change(int amount, vector<int>& coins) {      
         // return memoization(coins, amount);
-        return tabulation(coins, amount);
+        // return tabulation(coins, amount);
+        return spaceOptimize(coins, amount);
     }
 };
