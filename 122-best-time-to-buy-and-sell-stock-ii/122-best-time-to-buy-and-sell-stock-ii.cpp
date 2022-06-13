@@ -74,10 +74,31 @@ public:
         return aheadBuy;
         
     }
+    long spaceOptimize1D(vector<int> &prices){
+        int n = prices.size();
+        vector<int> dp(2, 0);
+        for(int ind = n-1; ind >= 0; ind--){
+            for(int buy = 0; buy <= 1; buy++){
+                int profit = 0;
+                if(buy){ // we can buy stock
+                    int take = -prices[ind] + dp[0];
+                    int notTake = dp[1];
+                    profit = max(take, notTake);
+                }else{ 
+                    int sell = prices[ind] + dp[1];
+                    int notSell = dp[0];
+                    profit = max(sell, notSell);
+                }
+                dp[buy] = profit;
+            }
+        }
+        return dp[1];
+    }
     int maxProfit(vector<int>& prices) {
         // return memoization(prices);
         // return tabulation(prices);
         // return spaceOptimize(prices);
-        return usingVariable(prices);
+        // return usingVariable(prices);
+        return spaceOptimize1D(prices);
     }
 };
