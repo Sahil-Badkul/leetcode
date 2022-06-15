@@ -8,6 +8,33 @@ int helper(int idx, vector<int>&nums, vector<int>&sum, vector<int> &dp){
     int notPick = helper(idx-1, nums, sum, dp);
     return dp[idx] = max(pick, notPick);
 }
+int memoization(vector<int> &nums, vector<int> &sum, int n){
+    vector<int> dp(n, -1);
+    return helper(n-1, nums, sum, dp);
+}
+int tabulation(vector<int> &nums, vector<int> &sum, int n){
+     // Tabulation
+    vector<int> dp(n, 0);
+    dp[0] = 0;
+    dp[1] = sum[1];
+    //now apply the house robbing concept
+    for(int i=2; i<n; i++){
+        dp[i] = max(dp[i-2] + sum[i], dp[i-1]);
+    }
+    
+    return dp[n-1];
+}
+int spaceOptimize(vector<int> &nums, vector<int> &sum, int n){
+     // space optimization
+    int prev2 = 0;
+    int prev = sum[1];
+    for(int i = 2; i < n; i++){
+        int curr = max(sum[i]+prev2, prev);
+        prev2 = prev;
+        prev = curr;
+    }
+    return max(prev2, prev);
+}
 int deleteAndEarn(vector<int>& nums) {
     int n = 10001;
     
@@ -18,29 +45,9 @@ int deleteAndEarn(vector<int>& nums) {
     for(auto num: nums){
         sum[num] += num;
     }
-    vector<int> dp(n, -1);
-    return helper(n-1, nums, sum, dp);
-    /*
-    // Tabulation
-    dp[0] = 0;
-    dp[1] = sum[1];
-    //now apply the house robbing concept
-    for(int i=2; i<n; i++){
-        dp[i] = max(dp[i-2] + sum[i], dp[i-1]);
-    }
     
-    return dp[n-1];
-    */
-    /*
-    // space optimization
-    int prev2 = 0;
-    int prev = sum[1];
-    for(int i = 2; i < n; i++){
-        int curr = max(sum[i]+prev2, prev);
-        prev2 = prev;
-        prev = curr;
-    }
-    return max(prev2, prev);
-    */
+    // return memoization(nums, sum, n);
+    return tabulation(nums, sum, n);
+    // return spaceOptimize(nums, sum, n);
 }
 };
