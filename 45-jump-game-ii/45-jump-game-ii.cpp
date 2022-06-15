@@ -13,12 +13,13 @@ public:
         return temp;
     }
     int jump(vector<int>& nums){
-        vector<int> dp(nums.size(),-1);
-        return jump(nums, 0, nums.size()-1, dp);
+        // vector<int> dp(nums.size(),-1);
+        // return jump(nums, 0, nums.size()-1, dp);
+        return jump1(nums);
     }
-    /*
+    
     // Gready
-    int jump(vector<int>& nums) {
+    int jump1(vector<int>& nums) {
         int curReach = 0;
         int maxReach = 0;
         int jumps = 0;
@@ -33,5 +34,4 @@ public:
         }
         return jumps;
     }
-    */
 };
