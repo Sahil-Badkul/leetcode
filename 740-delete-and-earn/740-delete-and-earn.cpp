@@ -4,9 +4,9 @@ int helper(int idx, vector<int>&nums, vector<int>&sum, vector<int> &dp){
     if(idx == 0) return 0;
     if(idx == 1) return sum[1];
     if(dp[idx] != -1) return dp[idx];
-    int left = sum[idx] + helper(idx-2, nums, sum, dp);
-    int right = helper(idx-1, nums, sum, dp);
-    return dp[idx] = max(left, right);
+    int pick = sum[idx] + helper(idx-2, nums, sum, dp);
+    int notPick = helper(idx-1, nums, sum, dp);
+    return dp[idx] = max(pick, notPick);
 }
 int deleteAndEarn(vector<int>& nums) {
     int n = 10001;
