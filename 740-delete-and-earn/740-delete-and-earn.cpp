@@ -47,7 +47,7 @@ int deleteAndEarn(vector<int>& nums) {
     }
     
     // return memoization(nums, sum, n);
-    return tabulation(nums, sum, n);
-    // return spaceOptimize(nums, sum, n);
+    // return tabulation(nums, sum, n);
+    return spaceOptimize(nums, sum, n);
 }
 };
