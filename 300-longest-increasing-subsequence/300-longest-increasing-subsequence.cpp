@@ -28,8 +28,23 @@ public:
         }
         return dp[0][-1+1];
     }
+    int spaceOptimize(vector<int> &nums){
+        int n = nums.size();
+        vector<int> dp(n+1, 0);
+        for(int ind = n-1; ind >= 0; ind--){
+            for(int prev_ind = ind-1; prev_ind >= -1; prev_ind--){
+                int len = 0 + dp[prev_ind+1];
+                if(prev_ind == -1 || nums[ind] > nums[prev_ind]){
+                    len = max(len, 1 + dp[ind+1]);
+                }
+                dp[prev_ind+1] = len;
+            }
+        }
+        return dp[-1+1];
+    }
     int lengthOfLIS(vector<int>& nums) {
         // return memoization(nums);
-        return tabulation(nums);
+        // return tabulation(nums);
+        return spaceOptimize(nums);
     }
 };
