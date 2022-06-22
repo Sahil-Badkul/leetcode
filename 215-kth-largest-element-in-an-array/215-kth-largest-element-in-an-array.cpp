@@ -5,7 +5,14 @@ public:
         int n = nums.size();
         return nums[n-k];
     }
+    
     int findKthLargest(vector<int>& nums, int k) {
-        return using_sorting(nums, k);
+        // return using_sorting(nums, k);
+        priority_queue<int> pq;
+        for(auto &x : nums) pq.push(x);
+        while(--k){
+            pq.pop();
+        }
+        return pq.top();
     }
 };
