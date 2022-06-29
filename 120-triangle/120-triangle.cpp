@@ -6,7 +6,7 @@ public:
     int d = tri[i][j] + memo(i+1, j, tri, n, dp);
     int dg = tri[i][j] + memo(i+1, j+1, tri, n, dp);
     return dp[i][j] = min(d, dg);
-}
+    }
 int memoization(vector<vector<int>>& triangle, int n){
     vector<vector<int>> dp(n, vector<int> (n, -1));
     return memo(0, 0, triangle, n, dp);
@@ -41,6 +41,7 @@ int tabulation(vector<vector<int>>& triangle, int n){
     return prev[0];
     }
     int minimumTotal(vector<vector<int>>& triangle) {
+        // variable ending point
         int n = triangle.size();
         // return memoization(triangle, n);
         // return tabulation(triangle, n);
