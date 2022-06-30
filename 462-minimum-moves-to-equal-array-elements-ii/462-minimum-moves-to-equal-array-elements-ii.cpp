@@ -11,11 +11,6 @@ public:
         int n = nums.size();
         sort(nums.begin(), nums.end());
         int mid = n/2;
-        if(n % 2 != 0){
-            return countMove(nums, mid);
-        }
-        int fst = countMove(nums, mid);
-        int snd = countMove(nums, mid-1);
-        return min(fst, snd);
+        return countMove(nums, mid);
     }
 };
