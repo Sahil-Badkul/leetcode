@@ -1,25 +1,26 @@
 class Solution {
 public:
-     int longestConsecutive(vector<int>& nums) {
-         // using set 
-         // TC : O(n) , SC : O(n)
-        set<int> hashSet;
-        for(auto &ele : nums){
-            hashSet.insert(ele);
+    
+    int longestConsecutive(vector<int>& nums) {
+        // BF-> sorting
+        // Optimanl -> set
+        // TC : O(N), SC : O(N)
+        set<int> s;
+        for(auto &num : nums){
+            s.insert(num);
         }
-        int maxi = 0;
-        
-        for(auto &num : hashSet){
-            if(!hashSet.count(num-1)){
-                int curr = num;
-                int currStreak = 1;
-                while(hashSet.count(curr+1)){
-                    curr += 1;
-                    currStreak += 1;
+        int maxLen = 0;
+        for(auto &x : s){
+            if(!s.count(x-1)){
+                int currNum = x;
+                int len = 1;
+                while(s.count(currNum + 1)){
+                    currNum += 1;
+                    len += 1;
                 }
-                maxi = max(maxi, currStreak);
+                maxLen = max(maxLen, len);
             }
         }
-        return maxi;
+        return maxLen;
     }
 };
