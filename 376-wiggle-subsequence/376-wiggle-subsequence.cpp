@@ -1,24 +1,16 @@
 class Solution {
 public:
     int wiggleMaxLength(vector<int>& nums) {
-        /*
-        // Gready
-        int n = nums.size(), prevDiff = 0, currDiff, len = 1;
+        // gready;
+        int n = nums.size(), len = 1;
+        int prev = 0, curr = 1;
         for(int i = 1; i < n; i++){
-            currDiff = nums[i] - nums[i-1];
-            if((currDiff < 0 && prevDiff >= 0) || (currDiff > 0 && prevDiff <= 0)){
+            curr = nums[i] - nums[i-1];
+            if((curr > 0 && prev <= 0) || (curr < 0 && prev >= 0)){
                 len++;
-                prevDiff = currDiff;
+                prev = curr;
             }
         }
         return len;
-        */
-        // Dp
-        int n = nums.size(), up = 1, down = 1;
-        for(int i = 1; i < n; i++){
-            if(nums[i] - nums[i-1] > 0) up = 1 + down;
-            else if(nums[i] - nums[i-1] < 0) down = 1 + up;
-        }
-        return max(up, down);
     }
 };
