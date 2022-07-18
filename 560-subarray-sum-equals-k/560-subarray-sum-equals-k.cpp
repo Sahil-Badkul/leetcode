@@ -17,11 +17,13 @@ public:
     */
     // Better approach
      int subarraySum(vector<int>& nums, int k) {
+         // map<sum, freq>
         unordered_map<int,int> umap;
          int sum = 0, cnt = 0;
          umap[0] = 1;
          for(int i = 0; i < nums.size(); i++){
              sum += nums[i];
+            // checking for sum - target
              if(umap.find(sum-k) != umap.end()){
                  cnt += umap[sum-k];
              }
