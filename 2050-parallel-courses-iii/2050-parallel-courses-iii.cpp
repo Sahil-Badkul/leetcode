@@ -1,50 +1,29 @@
 class Solution {
 public:
-    void topoSort(int node, stack<int> &st, vector<int> &vis, unordered_map<int, list<int>> &adj){
-        vis[node] = 1;
-        for(auto &nbr : adj[node]){
-            if(!vis[nbr]){
-                topoSort(nbr, st, vis, adj);
-            }
+    int minimumTime(int n, vector<vector<int>>& relations, vector<int>& time) {
+        unordered_map<int,list<int>> adj;
+        vector<int> indegree(n, 0);
+        vector<int> maxTime(time.begin(), time.end());
+        queue<int> q;
+        for(auto &ar : relations){
+            int u = ar[0]-1;
+            int v = ar[1]-1;
+            adj[u].push_back(v);
+            indegree[v]++;
         }
-        st.push(node);
-    }
-    int longestPath(unordered_map<int, list<int>> &adj, vector<int> &topo,vector<int>& time){
-        // dist vector
-        int n = topo.size();
-        vector<int> dist(n, 0);
-        for(int i = 0; i < n; i++) dist[i] = time[i];
-        for(int i = 0; i < n; i++){
-            int u = topo[i];
-            for(int &v : adj[u]){
-                if(dist[v] < time[v] + dist[u]){
-                    dist[v] = time[v] + dist[u];
+        for(int i = 0; i < n; i++) if(indegree[i] == 0) q.push(i);
+        while(!q.empty()){
+            int len = q.size();
+            for(int i = 0; i < len; i++){
+                int front = q.front(); q.pop();
+                for(auto &v : adj[front]){
+                    indegree[v]--;
+                    if(indegree[v] == 0) q.push(v);
+                    maxTime[v] = max(maxTime[v], maxTime[front] + time[v]);
                 }
             }
         }
-        int longest = *max_element(dist.begin(), dist.end());
-        return longest;
-    }
-    int minimumTime(int n, vector<vector<int>>& relations, vector<int>& time) {
-        // create adj list
-        unordered_map<int, list<int>> adj;
-        for(auto &arr : relations){
-            int u = arr[0]-1;
-            int v = arr[1]-1;
-            adj[u].push_back(v);
-        }
-        // create topo sort;
-        vector<int> topo;
-        stack<int> st;
-        vector<int> visited(n, 0);
-        for(int i = 0; i < n; i++){
-            if(!visited[i]){
-                topoSort(i, st, visited, adj);
-            }
-        }
-        while(!st.empty()){
-            topo.push_back(st.top()); st.pop();
-        }
-        return longestPath(adj, topo, time);
+        int ans = *max_element(maxTime.begin(), maxTime.end());
+        return ans;
     }
 };
