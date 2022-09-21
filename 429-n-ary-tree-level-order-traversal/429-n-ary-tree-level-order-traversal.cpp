@@ -19,23 +19,19 @@ public:
 */
 
 class Solution {
+private: 
+    vector<vector<int>> res;
 public:
-    vector<vector<int>> levelOrder(Node* root) {
-        vector<vector<int>> ans;
-        if(!root) return ans;
-        queue<Node*> q;
-        q.push(root);
-        while(!q.empty()){
-            int n = q.size();
-            vector<int> temp;
-            for(int i = 0; i < n; i++){
-                Node* node = q.front();
-                q.pop();
-                temp.emplace_back(node->val);
-                for(auto &child : node->children) q.emplace(child);
-            }
-            ans.push_back(temp);
+    void rec(Node* root, int level){
+        if(!root) return;
+        if(level == res.size()) res.push_back({});
+        res[level].push_back(root->val);
+        for(auto &child : root->children){
+            rec(child, level+1);
         }
-        return ans;
+    }
+    vector<vector<int>> levelOrder(Node* root) {
+        rec(root, 0);
+        return res;
     }
 };
