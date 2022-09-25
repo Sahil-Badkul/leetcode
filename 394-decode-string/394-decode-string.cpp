@@ -13,8 +13,8 @@ public:
         stack<string> st;        
         for(int i = 0; i < s.size(); i++){
             if(s[i] == '['){
-                cout<<'['<<endl;
-                cout<<cnum<<" "<<cstr<<endl;
+                // cout<<'['<<endl;
+                // cout<<cnum<<" "<<cstr<<endl;
                 st.push(to_string(cnum));
                 st.push(cstr);
                 cstr = "";
@@ -23,12 +23,12 @@ public:
                 prev = st.top(); st.pop();
                 pnum = stoi(st.top()); st.pop();
                 cstr = prev + repeat(cstr, pnum);
-                cout<<']'<<endl;
-                cout<<cstr<<" "<<prev<<endl;
+                // cout<<']'<<endl;
+                // cout<<cstr<<" "<<prev<<endl;
             }else if(isdigit(s[i])){
                 cnum = cnum * 10 + (s[i]-'0');
             }else{
-                cout<<"appending.."<<endl;
+                // cout<<"appending.."<<endl;
                 cstr += s[i];
             }
         }
