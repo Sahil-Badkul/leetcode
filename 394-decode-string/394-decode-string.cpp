@@ -1,37 +1,31 @@
 class Solution {
 public:
-    string repeat(string s, int n)
-    {
-        string s1 = s;
-        for (int i=1; i<n;i++)
-            s += s1;
-        return s;
+    string repeat(string &s, int num){
+        string temp = "";
+        while(num--) temp += s;
+        return temp;
     }
     string decodeString(string s) {
-        string prev = "", cstr = "";
-        int cnum = 0, pnum = 0;
-        stack<string> st;        
+        stack<string> st;
+        string prevStr = "", curr = "";
+        int cnum = 0, prevNum = 0;
         for(int i = 0; i < s.size(); i++){
             if(s[i] == '['){
-                // cout<<'['<<endl;
-                // cout<<cnum<<" "<<cstr<<endl;
                 st.push(to_string(cnum));
-                st.push(cstr);
-                cstr = "";
+                st.push(curr);
                 cnum = 0;
+                curr = "";
             }else if(s[i] == ']'){
-                prev = st.top(); st.pop();
-                pnum = stoi(st.top()); st.pop();
-                cstr = prev + repeat(cstr, pnum);
-                // cout<<']'<<endl;
-                // cout<<cstr<<" "<<prev<<endl;
+                prevStr = st.top(); st.pop();
+                prevNum = stoi(st.top()); st.pop();
+                curr = repeat(curr, prevNum);
+                curr = prevStr + curr;
             }else if(isdigit(s[i])){
-                cnum = cnum * 10 + (s[i]-'0');
+                cnum = cnum*10 + (s[i]-'0');
             }else{
-                // cout<<"appending.."<<endl;
-                cstr += s[i];
+                curr += s[i];
             }
         }
-        return cstr;
+        return curr;
     }
 };
