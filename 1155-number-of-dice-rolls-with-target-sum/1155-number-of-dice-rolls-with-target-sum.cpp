@@ -28,9 +28,26 @@ public:
         }
         return dp[d][t];
     }
+    int solveSO(int d, int face, int t){
+        vector<int> prev(t+1, 0), curr(t+1, 0);
+        prev[0] = 1;
+        for(int dice = 1; dice <= d; dice++){
+            for(int target = 1; target <= t; target++){
+                int ans = 0;
+                for(int i = 1; i <= face; i++){
+                    if(target - i >= 0)
+                        ans = (ans + prev[target-i])%mod;
+                }
+                curr[target] = ans;
+            }
+            prev = curr;
+        }
+        return curr[t];
+    }
     int numRollsToTarget(int n, int k, int target) {
         // vector<vector<int>> dp(n+1, vector<int> (target+1, -1));
         // return solveMem(n, k, target, dp);
-        return solveTab(n, k, target);
+        // return solveTab(n, k, target);
+        return solveSO(n, k, target);
     }
 };
