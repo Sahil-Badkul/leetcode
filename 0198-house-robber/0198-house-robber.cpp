@@ -13,10 +13,6 @@ public:
         int n = nums.size();
         vector<int> dp(n+1, -1);
         int fs = fun(0, nums, dp);
-        int sn = 0;
-        if(n > 1){
-            sn = fun(1, nums, dp);
-        }
-        return max(fs, sn);
+        return fs;
     }
 };
