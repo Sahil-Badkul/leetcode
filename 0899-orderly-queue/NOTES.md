@@ -1,0 +1,10 @@
+cdefabab
+1
+ababcdef
+2
+aabbcdef
+​
+cefababd
+cfababde
+cababdef
+ababdefc
