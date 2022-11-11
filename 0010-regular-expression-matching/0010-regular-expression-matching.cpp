@@ -1,27 +1,23 @@
 class Solution {
 public:
-     bool helper(string s, string p, int i, int j,vector<vector<int>> &dp)
-    {
-        if(j==p.length())
-            return i==s.length();
-        if(dp[i][j]>=0)
-            return dp[i][j];
-        bool first_match=(i<s.length() && (s[i]==p[j] || p[j]=='.' ));
-        bool ans=0;
-        if(j+1<p.length() && p[j+1]=='*')
-        {
-            ans= (helper(s,p,i,j+2,dp)|| (first_match && helper(s,p,i+1,j,dp) ));
+    bool helper(int i, int j, string &s, string &p, vector<vector<int>> &dp){
+        if(j == p.size()){
+            return i == s.size();
         }
-        else
-        {
-            ans= (first_match && helper(s,p,i+1,j+1,dp));
+        if(dp[i][j] >= 0) return dp[i][j];
+        bool first_match = (i < s.size() && (p[j] == s[i] || p[j] == '.')); 
+        bool ans = 0;
+        if(j+1 < p.size() && p[j+1] == '*'){
+            ans = helper(i, j+2, s, p, dp) || ( first_match && helper(i+1, j, s, p, dp));
+        }else{ 
+            ans = (first_match && helper(i+1, j+1, s, p, dp));
         }
-        dp[i][j]=ans;
+        dp[i][j] = ans;
         return ans;
     }
     bool isMatch(string s, string p) {
         int n = s.size(), m = p.size();
-        vector<vector<int>> dp(n+1, vector<int>(m, -1));
-        return helper(s,p,0,0,dp);
+        vector<vector<int>> dp(n+1, vector<int>(m+1, -1));
+        return helper(0,0, s, p, dp);
     }
 };
