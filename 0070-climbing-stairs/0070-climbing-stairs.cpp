@@ -8,6 +8,16 @@ public:
             return 0;
         if(n == 0) 
             return 1;
-        return um[n] = climbStairs(n-1) + climbStairs(n-2);
+        int one = 0;
+        if(um.find(n-1) != um.end())
+            one = um[n-1];
+        else
+            one = climbStairs(n-1);
+        int two = 0;
+        if(um.find(n-2) != um.end())
+            two = um[n-2];
+        else
+            two = climbStairs(n-2);
+        return um[n] = one + two;
     }
 };
