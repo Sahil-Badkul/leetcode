@@ -9,9 +9,11 @@ public:
     }
     int lcs(string &a, string &b){
         dp[0][0] = 1;
-        for(int i = 1; i <= a.size(); i++){
-            for(int j = 1; j <= b.size(); j++){
-                if(a[i-1] == b[j-1]){
+        for(int i = 0; i <= a.size(); i++){
+            for(int j = 0; j <= b.size(); j++){
+                if(i == 0 or j == 0){
+                    dp[i][j] = 0;
+                }else if(a[i-1] == b[j-1]){
                     dp[i][j] = 1 + dp[i-1][j-1];
                 }else{
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
@@ -21,10 +23,11 @@ public:
         return dp[a.size()][b.size()];
     }
     int longestPalindromeSubseq(string s) {
-        memset(dp, -1, sizeof(dp));
+        memset(dp, 0, sizeof(dp));
         int n = s.size();
         string b = s;
         reverse(b.begin(), b.end());
-        return lcs(n-1, n-1, s, b);
+        // return lcs(n-1, n-1, s, b);
+        return lcs(s,b);
     }
 };
