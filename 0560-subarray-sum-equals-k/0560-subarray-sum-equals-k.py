@@ -1,16 +1,16 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        mp = {} #to store all the previous sum to find sum-k, this will store sum: cnt
+        sum_ = 0
         ans = 0
-        curr_sum = 0
-        for n in nums:
-            curr_sum += n
-            if curr_sum == k:
-                ans += 1
-            if curr_sum - k in mp:
-                ans += mp[curr_sum - k]
-            if curr_sum in mp:
-                mp[curr_sum] += 1
+        mp = {0: 1}  # \U0001f448 initialize with prefix sum 0
+
+        for num in nums:
+            sum_ += num
+            if (sum_ - k) in mp:
+                ans += mp[sum_ - k]
+            if sum_ in mp:
+                mp[sum_] += 1
             else:
-                mp[curr_sum] = 1
+                mp[sum_] = 1
+
         return ans
