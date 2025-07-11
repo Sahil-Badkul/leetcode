@@ -8,6 +8,7 @@
 | [0048-rotate-image](https://github.com/Sahil-Badkul/leetcode/tree/master/0048-rotate-image) |
 | [0056-merge-intervals](https://github.com/Sahil-Badkul/leetcode/tree/master/0056-merge-intervals) |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Sahil-Badkul/leetcode/tree/master/0081-search-in-rotated-sorted-array-ii) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/Sahil-Badkul/leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0169-majority-element](https://github.com/Sahil-Badkul/leetcode/tree/master/0169-majority-element) |
 | [0229-majority-element-ii](https://github.com/Sahil-Badkul/leetcode/tree/master/0229-majority-element-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/Sahil-Badkul/leetcode/tree/master/0560-subarray-sum-equals-k) |
@@ -53,4 +54,5 @@
 | ------- |
 | [0033-search-in-rotated-sorted-array](https://github.com/Sahil-Badkul/leetcode/tree/master/0033-search-in-rotated-sorted-array) |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Sahil-Badkul/leetcode/tree/master/0081-search-in-rotated-sorted-array-ii) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/Sahil-Badkul/leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 <!---LeetCode Topics End-->
