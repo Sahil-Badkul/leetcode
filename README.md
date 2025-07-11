@@ -4,6 +4,7 @@
 ## Array
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/Sahil-Badkul/leetcode/tree/master/0033-search-in-rotated-sorted-array) |
 | [0048-rotate-image](https://github.com/Sahil-Badkul/leetcode/tree/master/0048-rotate-image) |
 | [0056-merge-intervals](https://github.com/Sahil-Badkul/leetcode/tree/master/0056-merge-intervals) |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Sahil-Badkul/leetcode/tree/master/0081-search-in-rotated-sorted-array-ii) |
@@ -50,5 +51,6 @@
 ## Binary Search
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/Sahil-Badkul/leetcode/tree/master/0033-search-in-rotated-sorted-array) |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/Sahil-Badkul/leetcode/tree/master/0081-search-in-rotated-sorted-array-ii) |
 <!---LeetCode Topics End-->
