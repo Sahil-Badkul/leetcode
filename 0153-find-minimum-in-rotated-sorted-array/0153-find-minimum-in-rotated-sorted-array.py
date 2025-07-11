@@ -10,7 +10,7 @@ class Solution:
                 else:
                     low = mid+1
             else:
-                if nums[mid] <= nums[high]:
+                if nums[mid] < nums[high]:
                     high = mid
                 else:
                     low = mid
