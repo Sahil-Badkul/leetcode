@@ -82,4 +82,8 @@
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/Sahil-Badkul/leetcode/tree/master/0014-longest-common-prefix) |
+## Database
+|  |
+| ------- |
+| [1182-game-play-analysis-iv](https://github.com/Sahil-Badkul/leetcode/tree/master/1182-game-play-analysis-iv) |
 <!---LeetCode Topics End-->
