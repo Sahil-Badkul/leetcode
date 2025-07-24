@@ -69,6 +69,7 @@
 ## Stack
 |  |
 | ------- |
+| [0225-implement-stack-using-queues](https://github.com/Sahil-Badkul/leetcode/tree/master/0225-implement-stack-using-queues) |
 | [1078-remove-outermost-parentheses](https://github.com/Sahil-Badkul/leetcode/tree/master/1078-remove-outermost-parentheses) |
 ## Two Pointers
 |  |
@@ -87,4 +88,12 @@
 | ------- |
 | [1182-game-play-analysis-iv](https://github.com/Sahil-Badkul/leetcode/tree/master/1182-game-play-analysis-iv) |
 | [2495-number-of-unique-subjects-taught-by-each-teacher](https://github.com/Sahil-Badkul/leetcode/tree/master/2495-number-of-unique-subjects-taught-by-each-teacher) |
+## Design
+|  |
+| ------- |
+| [0225-implement-stack-using-queues](https://github.com/Sahil-Badkul/leetcode/tree/master/0225-implement-stack-using-queues) |
+## Queue
+|  |
+| ------- |
+| [0225-implement-stack-using-queues](https://github.com/Sahil-Badkul/leetcode/tree/master/0225-implement-stack-using-queues) |
 <!---LeetCode Topics End-->
