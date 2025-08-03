@@ -88,6 +88,7 @@
 | ------- |
 | [1182-game-play-analysis-iv](https://github.com/Sahil-Badkul/leetcode/tree/master/1182-game-play-analysis-iv) |
 | [1664-find-users-with-valid-e-mails](https://github.com/Sahil-Badkul/leetcode/tree/master/1664-find-users-with-valid-e-mails) |
+| [1670-patients-with-a-condition](https://github.com/Sahil-Badkul/leetcode/tree/master/1670-patients-with-a-condition) |
 | [2024-calculate-special-bonus](https://github.com/Sahil-Badkul/leetcode/tree/master/2024-calculate-special-bonus) |
 | [2495-number-of-unique-subjects-taught-by-each-teacher](https://github.com/Sahil-Badkul/leetcode/tree/master/2495-number-of-unique-subjects-taught-by-each-teacher) |
 ## Design
