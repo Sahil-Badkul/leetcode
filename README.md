@@ -86,6 +86,7 @@
 ## Database
 |  |
 | ------- |
+| [0177-nth-highest-salary](https://github.com/Sahil-Badkul/leetcode/tree/master/0177-nth-highest-salary) |
 | [1182-game-play-analysis-iv](https://github.com/Sahil-Badkul/leetcode/tree/master/1182-game-play-analysis-iv) |
 | [1664-find-users-with-valid-e-mails](https://github.com/Sahil-Badkul/leetcode/tree/master/1664-find-users-with-valid-e-mails) |
 | [1670-patients-with-a-condition](https://github.com/Sahil-Badkul/leetcode/tree/master/1670-patients-with-a-condition) |
